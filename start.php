@@ -5,8 +5,10 @@
     if ($nombre == ''){
         echo 'Hay algún campo vacío';
     }else {
-        echo $_POST['nombre'];
-        echo $_POST['email'];
-        echo $_POST['telefono'];
+        echo $nombre;
+        echo ' ';
+        echo $email;
+        echo ' ';
+        echo $telefono;
     }
 ?>
