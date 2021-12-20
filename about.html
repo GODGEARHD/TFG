@@ -25,6 +25,15 @@
           if ((w == "") || (x == "") || (y == "") || (z == "")) {
             alert("Every field must be filled out");
             return false;
+          }else {
+              $.ajax({
+                method: "POST",
+                url: "start.php",
+                data: { text: $("input#formulario").text() }
+              })
+              .done(function( response ) {
+                $("textarea.formulario").html(response);
+              });
           }
         }
     </script>
@@ -107,7 +116,7 @@
                         Tell Me your ideas for future trips, photos, and also for helping me to improve my Web Page!
                     </h2>
                     <br>
-                    <form class="text-black" name="myForm" method="POST" action="start.php">
+                    <form class="text-black" name="myForm" method="GET" onsubmit="validateForm()">
                         <label for="nombre" class="text-black">Name:</label><br>
                         <input name="nombre" id="formulario" class="text-black" type="text" maxlength="75" placeholder="Carlos Maristegui"><br><br>
                         <label for="email" class="text-black">E-mail:</label><br>
